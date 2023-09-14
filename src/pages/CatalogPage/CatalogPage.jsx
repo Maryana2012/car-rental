@@ -1,30 +1,45 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from 'axios'
 
-import axiosAllCars from "../../axios/axios";
+import {axiosAllCars} from "../../axios/axios";
 import CarCardList from "components/CarCardList/CarCardList";
 
 const CatalogPage = () => { 
+    const [cars, setCars] = useState([]);
+    const [page, setPage] = useState(1)
+    // const [favorite, setFavorite] = useState([]);
 
-    const [cars, setCars] = useState(null);
-const BASE_URL = "https://648ce1bb8620b8bae7ed79fb.mockapi.io/cars"
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // const data = await axiosAllCars();
-                const data = await axios.get(BASE_URL)
-                setCars(data)
-                console.log(data);
-            } catch (error) {
+                const data = await axiosAllCars(page);
+                setCars(data);
+                setPage(2);
+                } catch (error) {
                 console.log(error)
             }
         }
         fetchData();     
-});
-    console.log(cars)
+    }, []);
     
-    return(<CarCardList cars={cars} />
+    const handleMakePagination = () => {
+        const fetchData = async () => {
+            try {
+                const data = await axiosAllCars(page);
+                setCars((prevCars) => [...prevCars, ...data]);
+                setPage((prevPage)=> prevPage +1)
+                console.log(cars);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
+    }
+      
+    return (<>
+        <CarCardList cars={cars} />
+        <button type="button" onClick={handleMakePagination}>Load More</button>
+    </>
         )
 
 }

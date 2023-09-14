@@ -2,7 +2,6 @@ import CarCard from "components/CarCard/CarCard";
 
 const CarCardList = (props) => {
     const {cars} = props;
-    console.log(cars);
     return ( <ul>
             {cars.map((car) => 
                 <CarCard key={car.id}
