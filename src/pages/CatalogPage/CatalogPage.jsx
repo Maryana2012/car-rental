@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
-import {axiosAllCars} from "../../axios/axios";
+import {axiosAllCars,axiosPagination} from "../../axios/axios";
 import CarCardList from "components/CarCardList/CarCardList";
 
 const CatalogPage = () => { 
@@ -12,7 +12,7 @@ const CatalogPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await axiosAllCars(page);
+                const data = await axiosAllCars();
                 setCars(data);
                 setPage(2);
                 } catch (error) {
@@ -20,14 +20,14 @@ const CatalogPage = () => {
             }
         }
         fetchData();     
-    }, [page]);
+    },[]);
     
     const handleMakePagination = () => {
         const fetchData = async () => {
             try {
-                const data = await axiosAllCars(page);
+                const data = await axiosPagination(page);
                 setCars((prevCars) => [...prevCars, ...data]);
-                setPage((prevPage)=> prevPage +1)
+                setPage((prevPage) => prevPage + 1);
                 console.log(cars);
             } catch (error) {
                 console.log(error);
