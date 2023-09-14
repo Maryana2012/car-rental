@@ -7,6 +7,7 @@ import CarCardList from "components/CarCardList/CarCardList";
 const CatalogPage = () => { 
     const [cars, setCars] = useState([]);
     const [page, setPage] = useState(1)
+    const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
   
 
     useEffect(() => {
@@ -20,7 +21,19 @@ const CatalogPage = () => {
             }
         }
         fetchData();     
-    },[]);
+    }, []);
+    
+       
+    useEffect(() => {
+    const favoriteStringify = JSON.stringify(favorite)
+        localStorage.setItem("favorite", favoriteStringify)
+    }, [favorite])
+
+    const handleFavoriteCar = (carId) => {
+    
+     const favoriteCar = cars.find(car =>  car.id === carId );
+        setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]);
+  };
     
     const handleMakePagination = () => {
         const fetchData = async () => {
@@ -37,7 +50,7 @@ const CatalogPage = () => {
     }
       
     return (<>
-        <CarCardList cars={cars} />
+        <CarCardList cars={cars} onHandleFavoriteCar={ handleFavoriteCar} />
         <button type="button" onClick={handleMakePagination}>Load More</button>
     </>
         )
