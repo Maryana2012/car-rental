@@ -7,7 +7,7 @@ import CarCardList from "components/CarCardList/CarCardList";
 const CatalogPage = () => { 
     const [cars, setCars] = useState([]);
     const [page, setPage] = useState(1)
-    // const [favorite, setFavorite] = useState([]);
+  
 
     useEffect(() => {
         const fetchData = async () => {
