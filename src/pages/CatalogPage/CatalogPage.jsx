@@ -20,7 +20,7 @@ const CatalogPage = () => {
             }
         }
         fetchData();     
-    }, []);
+    }, [page]);
     
     const handleMakePagination = () => {
         const fetchData = async () => {
