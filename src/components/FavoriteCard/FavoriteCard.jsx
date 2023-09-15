@@ -3,7 +3,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 const FavoriteCard = (props) => {
 
     const { favorite } = props;
-    console.log(favorite);
+   
     return (
         <ul>
         {favorite.map((favorite) => <li key={favorite.id}>

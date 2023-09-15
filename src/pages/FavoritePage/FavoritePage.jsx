@@ -1,25 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import FavoriteCard from "components/FavoriteCard/FavoriteCard";
 
 const FavoritePage = () => { 
-const [favorite, setFavorite] = useState([]);
+const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
 
-    useEffect(() => {
-        try {
-            const favorite = localStorage.getItem("favorite");
-            const favoriteParsed = JSON.parse(favorite);
-            setFavorite(favoriteParsed);
-        } catch (error) {
-            console.log(error.message);
-        }
-
-    }, []);
-
-    
-    return (<> 
+return (<> 
         <FavoriteCard favorite={favorite} />
-    </>)
+       </>)
 }
 
 export default FavoritePage;

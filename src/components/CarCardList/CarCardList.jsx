@@ -1,37 +1,20 @@
 // import CarCard from "components/CarCard/CarCard";
-import { useEffect } from "react";
-import { useState } from "react";
+
 import { AiOutlineHeart } from "react-icons/ai";
 
 
 const CarCardList = (props) => {
+    
     const { cars, onHandleFavoriteCar } = props;
-    // console.log(onHandleFavoriteCar);
- 
+    
     const handleMakeFavorite = (carId) => {
         onHandleFavoriteCar(carId)
     }
-    // const [favorite, setFavorite] = useState([]);
-       
-    // useEffect(() => {
-    // const favoriteStringify = JSON.stringify(favorite)
-    //     localStorage.setItem("favorite", favoriteStringify)
-    // }, [favorite])
-
-    // const handleMakeFavorite = (id) => {
-    //     const favoriteCar = cars.find(car =>  car.id === id );
-    //     setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]);  
-        
-    // }
+   
     return ( <ul>
         {cars.map((car) => <li key={car.id}>
-    
             <img src={car.img} alt="car" />
-            <button type="button"
-                onClick={()=>handleMakeFavorite(car.id)}
-            >
-                <AiOutlineHeart /></button>
-            
+            <button type="button" onClick={()=>handleMakeFavorite(car.id)}><AiOutlineHeart /></button>
             <span>{car.make}</span>
             <span>{car.model}</span>
             <span>{car.year}</span>
@@ -42,9 +25,7 @@ const CarCardList = (props) => {
             <span>{car.mileage}</span>
             <span>{car.accessories[0]}</span>
             <button type="button">Learn More</button>
-            </li>
-
-                )}
+            </li>)}
         </ul>)
 }
 
