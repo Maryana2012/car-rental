@@ -11,6 +11,8 @@ const CatalogPage = () => {
     const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
     const [selectMark, setSelectMark] = useState('');
     const [selectPrice, setSelectPrice] = useState('');
+    const [inputFrom, setInputFrom] = useState('');
+    const [inputTo, setInputTo] = useState('');
    
 
     useEffect(() => {
@@ -70,10 +72,27 @@ const CatalogPage = () => {
     const handlePriceChange = (e) => {
         setSelectPrice(e.value);
     }
+    const handleFromChange = (e) => {
+        setInputFrom(e.target.value);
+    }
+    const handleToChange = (e) => {
+        setInputTo(e.target.value);
+    }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+       console.log(selectMark, selectPrice, inputFrom, inputTo);
+
+        if (selectMark) {
+            const filterCar = [...cars];
+            const filtred =  filterCar.filter(car => car.mark === selectMark);
+            setCars(filtred)
+       } 
+       
+    }
     
     return (<>
-        <form>
+        <form onSubmit={handleSubmit}>
             <Select
                 placeholder="Enter the text"
                 options={optionsMark}
@@ -84,8 +103,16 @@ const CatalogPage = () => {
                 options={optionsPrice}
                 onChange={handlePriceChange}
              />
-            <input type="text" />
-            <input type="text" />
+            <input
+                type="text"
+                name="from"
+                placeholder="from"
+                onChange={handleFromChange}/>
+            <input
+                type="text"
+                name="to"
+                placeholder="to"
+                onChange={handleToChange}/>
             <button>Search</button>
         </form>
         <CarCardList cars={cars} onHandleFavoriteCar={ handleFavoriteCar} />
