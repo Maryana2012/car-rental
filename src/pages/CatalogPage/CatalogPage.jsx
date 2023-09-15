@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import Select from 'react-select';
 
-import { axiosAllCars, axiosPagination } from "../../axios/axios";
+import { axiosAllCars, axiosPagination,axiosCarsFilter } from "../../axios/axios";
 import CarCardList from "components/CarCardList/CarCardList";
 import { optionsMark,optionsPrice } from "../../data";
 
 const CatalogPage = () => { 
     const [cars, setCars] = useState([]);
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(1);
     const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
     const [selectMark, setSelectMark] = useState('');
     const [selectPrice, setSelectPrice] = useState('');
     const [inputFrom, setInputFrom] = useState('');
     const [inputTo, setInputTo] = useState('');
+    const [allCars, setAllCars] = useState('');
+    const [shouldRender, setShouldRender] = useState(false);
    
 
     useEffect(() => {
@@ -32,7 +34,25 @@ const CatalogPage = () => {
     useEffect(() => {
         const favoriteStringify = JSON.stringify(favorite)
         localStorage.setItem("favorite", favoriteStringify)
-    }, [favorite])
+    }, [favorite]);
+
+      
+    useEffect(() => {
+       if (shouldRender) {
+           const filterCarArray = [...allCars];
+           if (selectMark || selectPrice || (inputFrom && inputTo)) {
+               const filtered = filterCarArray.filter((car) => {
+                   const markCondition = !selectMark || car.make === selectMark;
+                   const priceCondition = !selectPrice || Number(car.rentalPrice.replace(/[^0-9.-]+/g, "")) <= Number(selectPrice);
+                   const mileageCondition =( !inputFrom && !inputTo) || (car.mileage >= inputFrom && car.mileage <= inputTo);
+                   return markCondition && priceCondition && mileageCondition;
+               });
+               setCars(filtered);
+           }       
+
+     setShouldRender(false);
+    }
+  }, [shouldRender, inputFrom, inputTo, selectMark, selectPrice, allCars]);
 
     const handleFavoriteCar = (carId) => {
         if (favorite.length === 0) {
@@ -81,14 +101,16 @@ const CatalogPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-       console.log(selectMark, selectPrice, inputFrom, inputTo);
-
-        if (selectMark) {
-            const filterCar = [...cars];
-            const filtred =  filterCar.filter(car => car.mark === selectMark);
-            setCars(filtred)
-       } 
-       
+        const fetchData = async () => {
+            try {
+                const data = await axiosCarsFilter();
+                setAllCars(data);
+                setShouldRender(true);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
     }
     
     return (<>
