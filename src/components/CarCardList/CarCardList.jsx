@@ -1,16 +1,32 @@
-// import CarCard from "components/CarCard/CarCard";
-
 import { AiOutlineHeart } from "react-icons/ai";
+import Modal from 'react-modal';
 
+import { axiosLearnMore } from "../../axios/axios";
+
+const rootElement = document.getElementById("root");
+Modal.setAppElement(rootElement);
 
 const CarCardList = (props) => {
-    
     const { cars, onHandleFavoriteCar } = props;
+
+
     
     const handleMakeFavorite = (carId) => {
         onHandleFavoriteCar(carId)
     }
    
+    const handleLearnMore = (carId) => {
+        const fetchData = async (carId) => {
+            try {
+                const data = await axiosLearnMore(carId)
+                console.log(data);
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+        fetchData(carId)
+    }
+
     return ( <ul>
         {cars.map((car) => <li key={car.id}>
             <img src={car.img} alt="car" />
@@ -24,7 +40,7 @@ const CarCardList = (props) => {
             <span>{car.type}</span>
             <span>{car.mileage}</span>
             <span>{car.accessories[0]}</span>
-            <button type="button">Learn More</button>
+            <button type="button" onClick={()=>handleLearnMore(car.id)}>Learn More</button>
             </li>)}
         </ul>)
 }

@@ -38,21 +38,21 @@ const CatalogPage = () => {
 
       
     useEffect(() => {
-       if (shouldRender) {
-           const filterCarArray = [...allCars];
-           if (selectMark || selectPrice || (inputFrom && inputTo)) {
-               const filtered = filterCarArray.filter((car) => {
-                   const markCondition = !selectMark || car.make === selectMark;
-                   const priceCondition = !selectPrice || Number(car.rentalPrice.replace(/[^0-9.-]+/g, "")) <= Number(selectPrice);
-                   const mileageCondition =( !inputFrom && !inputTo) || (car.mileage >= inputFrom && car.mileage <= inputTo);
-                   return markCondition && priceCondition && mileageCondition;
-               });
-               setCars(filtered);
-           }       
+        if (shouldRender) {
+            const filterCarArray = [...allCars];
+            if (selectMark || selectPrice || (inputFrom && inputTo)) {
+                const filtered = filterCarArray.filter((car) => {
+                    const markCondition = !selectMark || car.make === selectMark;
+                    const priceCondition = !selectPrice || Number(car.rentalPrice.replace(/[^0-9.-]+/g, "")) <= Number(selectPrice);
+                    const mileageCondition = (!inputFrom && !inputTo) || (car.mileage >= inputFrom && car.mileage <= inputTo);
+                    return markCondition && priceCondition && mileageCondition;
+                });
+                setCars(filtered);
+            }
 
-     setShouldRender(false);
-    }
-  }, [shouldRender, inputFrom, inputTo, selectMark, selectPrice, allCars]);
+            setShouldRender(false);
+        }
+    }, [shouldRender, inputFrom, inputTo, selectMark, selectPrice, allCars]);
 
     const handleFavoriteCar = (carId) => {
         if (favorite.length === 0) {
@@ -70,7 +70,7 @@ const CatalogPage = () => {
             const favoriteCar = cars.find(car =>  car.id === carId );
             setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]);       
         }
-    };
+    }
     
     const handleMakePagination = () => {
         const fetchData = async () => {
@@ -83,21 +83,21 @@ const CatalogPage = () => {
             }
         }
         fetchData();
-    }
+    };
 
     const handleMarkChange = (e) => {
         setSelectMark(e.value);
-    }
+    };
 
     const handlePriceChange = (e) => {
         setSelectPrice(e.value);
-    }
+    };
     const handleFromChange = (e) => {
         setInputFrom(e.target.value);
-    }
+    };
     const handleToChange = (e) => {
         setInputTo(e.target.value);
-    }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -111,7 +111,7 @@ const CatalogPage = () => {
             }
         }
         fetchData();
-    }
+    };
     
     return (<>
         <form onSubmit={handleSubmit}>
