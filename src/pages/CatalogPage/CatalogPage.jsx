@@ -9,6 +9,8 @@ const CatalogPage = () => {
     const [cars, setCars] = useState([]);
     const [page, setPage] = useState(1)
     const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
+    const [selectMark, setSelectMark] = useState('');
+    const [selectPrice, setSelectPrice] = useState('');
    
 
     useEffect(() => {
@@ -62,11 +64,11 @@ const CatalogPage = () => {
     }
 
     const handleMarkChange = (e) => {
-        
+        setSelectMark(e.value);
     }
 
     const handlePriceChange = (e) => {
-        
+        setSelectPrice(e.value);
     }
 
     
