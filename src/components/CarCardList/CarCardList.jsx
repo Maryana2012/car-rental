@@ -13,10 +13,7 @@ const CarCardList = (props) => {
     const [findCar, setFindCar] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    useEffect(() => {
-        
-    })
-
+  
     const handleMakeFavorite = (carId) => {
         onHandleFavoriteCar(carId)
     }
@@ -35,27 +32,57 @@ const CarCardList = (props) => {
         fetchData();
     }
 
-    // const openModal = () => {
-    //     setModalIsOpen(true);
-    // }
-
     const closeModal = () => {
         setModalIsOpen(false);
         setFindCar('')
     }
+
+    const getCity = (address) => {
+       const city = address.split(",");
+         if (city.length >= 2) {
+           return city[1]; 
+        } else {
+         return ''; 
+        }
+    } 
+     const getCountry = (address) => {
+       const city = address.split(",");
+         if (city.length >= 2) {
+           return city[2]; 
+        } else {
+         return ''; 
+        }
+    } 
+
+
+
+
+
+
+
+    
     return (<>
         <ul className={css.list}>
             {cars.map((car) => <li className={css.card}
                 key={car.id}>
                 <img className={css.image} src={car.img} alt="car" />
                 <button className={css.buttonFavorite} type="button" onClick={() => handleMakeFavorite(car.id)}><AiOutlineHeart className={css.heart} /></button>
-               
-                <span>{car.make}</span>
+                <div className={css.textContainerFirst}>
+                    <div>
+                        <span className={css.textMark}>{car.make}, </span>
+                        <span className={css.textYear}>{car.year}</span>
+                    </div>
+                        <span className={css.textPrice}>{car.rentalPrice}</span>
+                </div>
+                <div className={css.textContainerSecond}>
+                    <span className={css.textCity}>{getCity(car.address)} </span>
+                    <div className={css.stick}></div>
+                    <span className={css.textCountry}>{getCountry(car.address)} </span>
+                    <div className={css.stick}></div>
+                    <span className={css.textCompany}>{car.rentalCompany}</span>
+
+                </div>
                 <span>{car.model}</span>
-                <span>{car.year}</span>
-                <span>{car.rentalPrice}</span>
-                <span>{car.address}</span>
-                <span>{car.rentalCompany}</span>
                 <span>{car.type}</span>
                 <span>{car.mileage}</span>
                 <span>{car.accessories[0]}</span>

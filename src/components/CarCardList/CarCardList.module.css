@@ -2,13 +2,15 @@
     padding: 0;
     list-style: none;
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 29px;
     flex-wrap: wrap;
 }
 .card{
     position: relative;
     display: flex;
-    width: 274px;
+    width: 268px;
     height: 426px;
     flex-direction: column;
     align-items: flex-start;
@@ -16,8 +18,10 @@
 }
 .image{
     width: 268px;
-    height: 268px;
+    min-height: 268px;
     margin-bottom: 14px;
+    border-radius: 14px;
+
 }
 .buttonFavorite{
    position: absolute;
@@ -29,4 +33,56 @@
 .heart{
     width: 18px;
     height: 18px;
+    color: white;
+}
+.textMark{
+    color: #121417;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    /* font-style: normal; */
+    font-weight: 500;
+    /* line-height: 24px; */
+}
+.textYear{
+    color: #121417;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    /* font-style: normal; */
+    font-weight: 500;
+    /* line-height: 24px */
+}
+.textPrice{
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    /* font-style: normal; */
+    font-weight: 500;
+    /* line-height: 24px */
+    color: #121417;
+}
+.textContainerFirst{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.textCity, .textCountry, .textCompany{
+    color: rgba(18, 20, 23, 0.50);
+    font-family: Manrope, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    margin-right: 6px;
+    /* line-height: 18px; */
+
+}
+
+.stick{
+    width: 1px;
+    height: 16px;
+    color: rgba(18, 20, 23, 0.50);
+    margin-right: 0;
+}
+.textContainerSecond{
+    display: flex;
+    
 }
