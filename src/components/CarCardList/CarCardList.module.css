@@ -35,30 +35,15 @@
     height: 18px;
     color: white;
 }
-.textMark{
+.textMark, .textYear, .textPrice {
     color: #121417;
     font-family: Manrope, sans-serif;
     font-size: 16px;
-    /* font-style: normal; */
+    font-style: normal;
     font-weight: 500;
-    /* line-height: 24px; */
+    line-height: 24px;
 }
-.textYear{
-    color: #121417;
-    font-family: Manrope, sans-serif;
-    font-size: 16px;
-    /* font-style: normal; */
-    font-weight: 500;
-    /* line-height: 24px */
-}
-.textPrice{
-    font-family: Manrope, sans-serif;
-    font-size: 16px;
-    /* font-style: normal; */
-    font-weight: 500;
-    /* line-height: 24px */
-    color: #121417;
-}
+
 .textContainerFirst{
     display: flex;
     flex-direction: row;
@@ -67,22 +52,27 @@
     width: 100%;
 }
 .textCity, .textCountry, .textCompany{
+    display: flex;
+    height: 16px;
     color: rgba(18, 20, 23, 0.50);
     font-family: Manrope, sans-serif;
     font-size: 12px;
     font-weight: 400;
     margin-right: 6px;
-    /* line-height: 18px; */
+    line-height: 18px;
+    /* width: 100%; */
 
 }
 
 .stick{
     width: 1px;
     height: 16px;
-    color: rgba(18, 20, 23, 0.50);
-    margin-right: 0;
+    background-color: rgba(18, 20, 23, 0.10);;
+    margin-right: 6px;
 }
 .textContainerSecond{
     display: flex;
-    
+    flex-direction: row;
+    height: 16px;
+    width: 100%;
 }
