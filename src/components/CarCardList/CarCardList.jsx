@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
+import {AiOutlineClose} from "react-icons/ai"
 import Modal from 'react-modal';
 
 import { axiosCarsFilter } from "../../axios/axios";
@@ -54,47 +55,67 @@ const CarCardList = (props) => {
         }
     } 
 
-
-
-
-
-
-
-    
+    const modalStyles = {
+         overlay: {
+           backgroundColor: 'rgba(0, 0, 0, 0.5)',
+           zIndex:10
+    },
+        content: {
+            width: 541,
+            height: 752,
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            marginTop: 40,
+            paddingLeft: 15,
+            paddingRight: 15,
+            paddingTop: 35,
+            paddingBottom:35,
+            transform: 'translate(-50%, -50%)',
+        }
+};
     return (<>
         <ul className={css.list}>
-            {cars.map((car) => <li className={css.card}
+            {cars.map((car) =>
+                <li className={css.card}
                 key={car.id}>
                 <img className={css.image} src={car.img} alt="car" />
                 <button className={css.buttonFavorite} type="button" onClick={() => handleMakeFavorite(car.id)}><AiOutlineHeart className={css.heart} /></button>
                 <div className={css.textContainerFirst}>
                     <div>
-                        <span className={css.textMark}>{car.make}, </span>
-                        <span className={css.textYear}>{car.year}</span>
+                        <span className={css.textSubtitle}>{car.make}, </span>
+                        <span className={css.textSubtitle}>{car.year}</span>
                     </div>
-                        <span className={css.textPrice}>{car.rentalPrice}</span>
+                        <span className={css.textSubtitle}>{car.rentalPrice}</span>
                 </div>
                 <div className={css.textContainerSecond}>
-                    <span className={css.textCity}>{getCity(car.address)} </span>
+                    <span className={css.text}>{getCity(car.address)} </span>
                     <div className={css.stick}></div>
-                    <span className={css.textCountry}>{getCountry(car.address)} </span>
+                    <span className={css.text}>{getCountry(car.address)} </span>
                     <div className={css.stick}></div>
-                    <span className={css.textCompany}>{car.rentalCompany}</span>
-
+                    <span className={css.text}>{car.rentalCompany}</span>
                 </div>
-                <span>{car.model}</span>
-                <span>{car.type}</span>
-                <span>{car.mileage}</span>
-                <span>{car.accessories[0]}</span>
-                <button type="button" onClick={() => handleLearnMore(car.id)}>Learn More</button>
+                <div className={css.textContainerThird}>
+                   <span className={css.text}>{car.type}</span>
+                   <div className={css.stick}></div> 
+                   <span className={css.text}>{car.model}</span>
+                   <div className={css.stick}></div>
+                   <span className={css.text}>{car.mileage}</span>
+                   <div className={css.stick}></div>
+                   <span className={css.text}>{car.accessories[0]}</span>
+                </div>
+                <button className={css.buttonLearnMore} type="button" onClick={() => handleLearnMore(car.id)}>Learn More</button>
             </li>)}
         </ul>
-        <Modal isOpen={modalIsOpen}
+        <Modal style={modalStyles}
+            isOpen={modalIsOpen}
             onRequestClose={closeModal}
         >
            { findCar && (<>
-                <img src={findCar.img} alt='car'/>
-                <button type="button" onClick={closeModal}>close</button>
+                <img className={css.imageModal} src={findCar.img} alt='car'/>
+                <button type="button" onClick={closeModal}><AiOutlineClose/></button>
                 </>)}
             
         </Modal>

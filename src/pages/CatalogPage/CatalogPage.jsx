@@ -136,7 +136,8 @@ const CatalogPage = () => {
             fontSize: 18,
             fontWeight: 500, 
             color: '#121417',
-            paddingLeft: 18
+            paddingLeft: 18,
+            
        }),
     };
 
@@ -160,6 +161,7 @@ const CatalogPage = () => {
 
     
     return (<main className={css.container}>
+        <section>
         <form  className={css.form} onSubmit={handleSubmit}>
             <Select
                 styles={customStylesMark}
@@ -188,8 +190,11 @@ const CatalogPage = () => {
                 onChange={handleToChange}/>
             <button className={css.buttonSearch}>Search</button>
         </form>
+        </section>
+        <section className={css.sectionList}>
         <CarCardList cars={cars} onHandleFavoriteCar={ handleFavoriteCar} />
-        <button type="button" onClick={handleMakePagination}>Load More</button>
+        <button className={css.buttonLoadMore} type="button" onClick={handleMakePagination}>Load More</button>
+        </section>
     </main>
         )
 
