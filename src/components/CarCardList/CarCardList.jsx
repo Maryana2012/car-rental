@@ -3,6 +3,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import Modal from 'react-modal';
 
 import { axiosCarsFilter } from "../../axios/axios";
+import css from '../CarCardList/CarCardList.module.css'
 
 const rootElement = document.getElementById("root");
 Modal.setAppElement(rootElement);
@@ -43,10 +44,12 @@ const CarCardList = (props) => {
         setFindCar('')
     }
     return (<>
-        <ul>
-            {cars.map((car) => <li key={car.id}>
-                <img src={car.img} alt="car" />
-                <button type="button" onClick={() => handleMakeFavorite(car.id)}><AiOutlineHeart /></button>
+        <ul className={css.list}>
+            {cars.map((car) => <li className={css.card}
+                key={car.id}>
+                <img className={css.image} src={car.img} alt="car" />
+                <button className={css.buttonFavorite} type="button" onClick={() => handleMakeFavorite(car.id)}><AiOutlineHeart className={css.heart} /></button>
+               
                 <span>{car.make}</span>
                 <span>{car.model}</span>
                 <span>{car.year}</span>

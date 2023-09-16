@@ -1,12 +1,18 @@
 .container{
+    flex-direction: row;
     padding-top: 150px;
     padding-bottom: 150px;
     padding-left: 115px;
     padding-right: 115px;
+    justify-content: center;
+    align-content: center;
 }
 .form{
     display: flex;
     flex-direction: row;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;  
 
 }
 .selectMark{

@@ -1,0 +1,32 @@
+.list{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 29px;
+    flex-wrap: wrap;
+}
+.card{
+    position: relative;
+    display: flex;
+    width: 274px;
+    height: 426px;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 28px; */
+}
+.image{
+    width: 268px;
+    height: 268px;
+    margin-bottom: 14px;
+}
+.buttonFavorite{
+   position: absolute;
+   top: 14px;
+   left:226px;
+   background: rgba(0, 0, 0, 0);
+   border: none;
+}
+.heart{
+    width: 18px;
+    height: 18px;
+}
