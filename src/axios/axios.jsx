@@ -32,12 +32,12 @@ export const axiosCarsFilter = async() => {
 
 }
 
-export const axiosLearnMore = async (carId) => {
-    try {
-        const response = await axios.get(`${BASE_URL}/${carId}`);
-         console.log(response);
-        return response.data;
-    } catch (error) {
-        console.log(error.message)
-    }
-}
+// export const axiosLearnMore = async (carId) => {
+//     try {
+//         const response = await axios.get(`${BASE_URL}/${carId}`);
+//          console.log(response);
+//         return response.data;
+//     } catch (error) {
+//         console.log(error.message)
+//     }
+// }
