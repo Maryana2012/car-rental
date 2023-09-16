@@ -1,0 +1,90 @@
+.container{
+    padding-top: 150px;
+    padding-bottom: 150px;
+    padding-left: 115px;
+    padding-right: 115px;
+}
+.form{
+    display: flex;
+    flex-direction: row;
+
+}
+.selectMark{
+    margin-right: 18px;
+}
+.selectPrice{
+    margin-right: 18px;
+} 
+.inputFrom{
+    display: flex;
+    width: 160px;
+    height: 48px;
+    align-items: center;
+    border: none;
+    border-radius: 14px 0px 0px 14px;
+    border-right: 1px solid rgba(138, 138, 137, 0.20);
+    background: #F7F7FB;
+}
+.labelFrom{
+    position: absolute;
+    top:163px;
+    left:520px;
+    z-index: 3;
+    color: #121417;
+    font-family: Manrope, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.inputTo {
+    display: flex;
+    width: 160px;
+    height: 48px;
+    align-items: center;
+    border-radius: 0px 14px 14px 0px;
+    background: #F7F7FB;
+    margin-right: 18px;
+    border: none;
+}
+.labelTo {
+    position: absolute;
+    top: 163px;
+    left: 680px;
+    z-index: 3;
+    color: #121417;
+    font-family: Manrope, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+}
+.buttonSearch{
+    display: flex;
+    width: 136px;
+    height: 48px;
+    /* padding: 14px 44px; */
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: #3470FF;
+    border: none;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+
+    /* display: flex;
+    width: 136px;
+    height: 35px;
+    padding: 14px 44px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: #3470FF;
+    border: none;
+    font-family: Manrope, sans-serif;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: white; */
+}

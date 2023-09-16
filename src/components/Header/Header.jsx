@@ -1,8 +1,12 @@
 import Navigation from "../Navigation/Navigation";
+import css from '../Header/Header.module.css'
 
 const Header = () => {
     return (
-        <Navigation/>
+        <header className={css.container}>
+            <Navigation/>
+        </header>
+    
     )
 }
 

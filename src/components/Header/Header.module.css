@@ -1,0 +1,6 @@
+.container {
+    position: fixed;
+    z-index: 5;
+    width:100%;
+}
+

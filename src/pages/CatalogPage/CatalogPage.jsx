@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import Select from 'react-select';
+// import 'react-select/dist/react-select.css'
 
 import { axiosAllCars, axiosPagination,axiosCarsFilter } from "../../axios/axios";
 import CarCardList from "components/CarCardList/CarCardList";
-import { optionsMark,optionsPrice } from "../../data";
+import { optionsMark, optionsPrice } from "../../data";
+import css from "../CatalogPage/CatalogPage.module.css"
+// import customStyle from "../CatalogPage/selectStyles"
 
 const CatalogPage = () => { 
     const [cars, setCars] = useState([]);
@@ -40,17 +43,23 @@ const CatalogPage = () => {
     useEffect(() => {
         if (shouldRender) {
             const filterCarArray = [...allCars];
+            // console.log(selectMark)
             if (selectMark || selectPrice || (inputFrom && inputTo)) {
                 const filtered = filterCarArray.filter((car) => {
-                    const markCondition = !selectMark || car.make === selectMark;
-                    const priceCondition = !selectPrice || Number(car.rentalPrice.replace(/[^0-9.-]+/g, "")) <= Number(selectPrice);
+                    const markCondition = !selectMark || car.make === selectMark.value;
+                    const priceCondition = !selectPrice || Number(car.rentalPrice.replace(/[^0-9.-]+/g, "")) <= Number(selectPrice.value);
                     const mileageCondition = (!inputFrom && !inputTo) || (car.mileage >= inputFrom && car.mileage <= inputTo);
                     return markCondition && priceCondition && mileageCondition;
                 });
                 setCars(filtered);
+                setInputFrom('');
+                setInputTo('');
+                setSelectMark('');
+                setSelectPrice('')
             }
 
             setShouldRender(false);
+            
         }
     }, [shouldRender, inputFrom, inputTo, selectMark, selectPrice, allCars]);
 
@@ -85,12 +94,12 @@ const CatalogPage = () => {
         fetchData();
     };
 
-    const handleMarkChange = (e) => {
-        setSelectMark(e.value);
+    const handleMarkChange = (selectedOption) => {
+        setSelectMark(selectedOption);
     };
 
-    const handlePriceChange = (e) => {
-        setSelectPrice(e.value);
+    const handlePriceChange = (selectedOption) => {
+        setSelectPrice(selectedOption);
     };
     const handleFromChange = (e) => {
         setInputFrom(e.target.value);
@@ -106,40 +115,82 @@ const CatalogPage = () => {
                 const data = await axiosCarsFilter();
                 setAllCars(data);
                 setShouldRender(true);
+                ;
             } catch (error) {
                 console.log(error);
             }
         }
         fetchData();
     };
+
+    const customStylesMark = {
+       control: (provided) => ({
+       ...provided,
+            width: 224, 
+            height: 48,
+            borderRadius: 14,
+            background: '#F7F7FB',
+            border: 'none',
+            marginRight: 18,
+            fontFamily: 'Manrope, sans-serif',
+            fontSize: 18,
+            fontWeight: 500, 
+            color: '#121417',
+            paddingLeft: 18
+       }),
+    };
+
+    const customStylesPrice = {
+       control: (provided) => ({
+       ...provided,
+            width: 125, 
+            height: 48,
+            borderRadius: 14,
+            background: '#F7F7FB',
+            border: 'none',
+            marginRight: 18,
+            fontFamily: 'Manrope, sans-serif',
+            fontSize: 18,
+            fontWeight: 500,
+            color: '#121417',
+            paddingLeft: 18
+       }),
+    };
+
+
     
-    return (<>
-        <form onSubmit={handleSubmit}>
+    return (<main className={css.container}>
+        <form  className={css.form} onSubmit={handleSubmit}>
             <Select
+                styles={customStylesMark}
                 placeholder="Enter the text"
                 options={optionsMark}
+                value={selectMark}
                 onChange={handleMarkChange}
             />
-             <Select
+             <Select   styles={customStylesPrice}
                 placeholder="To $"
                 options={optionsPrice}
+                // value={selectPrice}
                 onChange={handlePriceChange}
              />
-            <input
+            <label className={css.labelFrom}>From</label>
+            <input className={css.inputFrom }
                 type="text"
                 name="from"
-                placeholder="from"
-                onChange={handleFromChange}/>
-            <input
+                value={inputFrom}
+                onChange={handleFromChange} />
+            <label className={css.labelTo}>To</label>
+            <input className={css.inputTo}
                 type="text"
                 name="to"
-                placeholder="to"
+                value={inputTo}
                 onChange={handleToChange}/>
-            <button>Search</button>
+            <button className={css.buttonSearch}>Search</button>
         </form>
         <CarCardList cars={cars} onHandleFavoriteCar={ handleFavoriteCar} />
         <button type="button" onClick={handleMakePagination}>Load More</button>
-    </>
+    </main>
         )
 
 }
