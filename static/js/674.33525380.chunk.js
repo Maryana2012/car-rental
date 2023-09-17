@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[674],{8674:function(e,a,r){r.r(a),r.d(a,{default:function(){return s}});var t="HomePage_container__uNu-e",n="HomePage_imageFirst__lxGlZ",c=r(184),s=function(){return(0,c.jsxs)("main",{className:t,children:[(0,c.jsx)("h1",{children:"Car rental"}),(0,c.jsx)("div",{children:(0,c.jsx)("img",{className:n,src:"/images/car_rental.jpg",alt:"car"})})]})}}}]);
+//# sourceMappingURL=674.33525380.chunk.js.map
