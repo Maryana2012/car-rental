@@ -9,9 +9,7 @@
     flex-wrap: wrap;
     margin-bottom: 100px;
 }
-.listFavorite{
-    padding-top: 120px;
-}
+
 .card{
     position: relative;
     display: flex;
@@ -211,9 +209,8 @@
     margin-top: 24px;
 }
 .buttonRentalCar{
-    
+    text-decoration: none;
     display: inline-flex;
-    padding: 12px 50px;
     width: 168px;
     height: 44px;
     justify-content: center;

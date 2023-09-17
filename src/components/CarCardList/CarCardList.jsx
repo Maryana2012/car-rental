@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import {AiOutlineClose} from "react-icons/ai"
 import Modal from 'react-modal';
+import { nanoid } from "nanoid";
 
 import { axiosCarsFilter } from "../../axios/axios";
 import css from '../CarCardList/CarCardList.module.css'
@@ -14,7 +15,6 @@ const CarCardList = (props) => {
     const { cars, onHandleFavoriteCar } = props;
     const [findCar, setFindCar] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
-
   
     const handleMakeFavorite = (carId) => {
         onHandleFavoriteCar(carId)
@@ -89,7 +89,7 @@ const CarCardList = (props) => {
             borderRadius: 24,
             background: '#FFF',
         }
-};
+    };
     return (<>
         <ul className={css.list} id="list">
             {cars.map((car) =>
@@ -154,11 +154,11 @@ const CarCardList = (props) => {
                 </div>
                 <p className={css.modalDescription}>{findCar.description}</p>
                 <p className={css.modalAccessoriesTitle}>Accessories and functionalities:</p>
-                <p className={css.modalAccessory}>{findCar.accessories.map((accessory) =>
+                <div className={css.modalAccessory}>{findCar.accessories.map((accessory) =>
                     <><span key={accessory} className={css.modalTextFirst}>{accessory}</span>
                         <div className={css.stick}></div></>)
                 }
-                </p>
+                </div>
                 <p className={css.modalAccessoriesTitle}>Rental Conditions: </p>
                 <p>{getConditions(findCar.rentalConditions).map(car =>
                     <span key={car} className={css.modalConditionsItem}>{car}</span>)}</p>

@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import Select from 'react-select';
-// import 'react-select/dist/react-select.css'
 
 import { axiosAllCars, axiosPagination,axiosCarsFilter } from "../../axios/axios";
 import CarCardList from "components/CarCardList/CarCardList";
 import { optionsMark, optionsPrice } from "../../data";
 import css from "../CatalogPage/CatalogPage.module.css"
-// import customStyle from "../CatalogPage/selectStyles"
 
 const CatalogPage = () => { 
     const [cars, setCars] = useState([]);
@@ -43,8 +41,8 @@ const CatalogPage = () => {
     useEffect(() => {
         if (shouldRender) {
             const filterCarArray = [...allCars];
-            // console.log(selectMark)
-            if (selectMark || selectPrice || (inputFrom && inputTo)) {
+            console.log(selectMark);
+                if (selectMark || selectPrice || (inputFrom && inputTo)) {
                 const filtered = filterCarArray.filter((car) => {
                     const markCondition = !selectMark || car.make === selectMark.value;
                     const priceCondition = !selectPrice || Number(car.rentalPrice.replace(/[^0-9.-]+/g, "")) <= Number(selectPrice.value);
@@ -162,32 +160,38 @@ const CatalogPage = () => {
     
     return (<main className={css.container}>
         <section>
-        <form  className={css.form} onSubmit={handleSubmit}>
+            <form className={css.form} onSubmit={handleSubmit}>
+            <label className={css.labelForm}>Car brand
             <Select
                 styles={customStylesMark}
                 placeholder="Enter the text"
                 options={optionsMark}
                 value={selectMark}
                 onChange={handleMarkChange}
-            />
-             <Select   styles={customStylesPrice}
+            /></label>
+            <label className={css.labelForm}>Price/ 1 hour
+            <Select   styles={customStylesPrice}
                 placeholder="To $"
                 options={optionsPrice}
-                // value={selectPrice}
+                value={selectPrice}
                 onChange={handlePriceChange}
-             />
+            /></label>
+            <label className={css.labelForm}>Сar mileage / km
             <label className={css.labelFrom}>From</label>
             <input className={css.inputFrom }
                 type="text"
                 name="from"
                 value={inputFrom}
-                onChange={handleFromChange} />
+                        onChange={handleFromChange} />
+                </label>
+            <label className={css.labelForm}>.
             <label className={css.labelTo}>To</label>
             <input className={css.inputTo}
                 type="text"
                 name="to"
                 value={inputTo}
-                onChange={handleToChange}/>
+                        onChange={handleToChange} />
+            </label>
             <button className={css.buttonSearch}>Search</button>
         </form>
         </section>
