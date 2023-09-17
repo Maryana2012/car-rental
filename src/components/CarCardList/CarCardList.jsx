@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { axiosCarsFilter } from '../../axios/axios';
 import css from '../CarCardList/CarCardList.module.css'
+import { useEffect } from 'react';
 
 const rootElement = document.getElementById('root');
 Modal.setAppElement(rootElement);
@@ -12,10 +13,8 @@ const CarCardList = (props) => {
     const { cars, onHandleFavoriteCar } = props;
     const [findCar, setFindCar] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [favorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
-    
+    const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
 
-  
     const handleMakeFavorite = (carId) => {
         onHandleFavoriteCar(carId)
     }
@@ -96,8 +95,8 @@ const CarCardList = (props) => {
                 <img className={css.image} src={car.img} alt="car" />
                     <button className={css.buttonFavorite} type="button" onClick={() => handleMakeFavorite(car.id)}>
                         {favorite.find(favorite => favorite.id === car.id) ?
-                        <AiOutlineHeart className={css.heart} />:
-                            <AiFillHeart style={{ color: "blue" }} />
+                        (<AiFillHeart className={css.heart} style={{ color: "blue" }}/>):
+                        (<AiOutlineHeart className={css.heart}  />)
                         }
                         </button>
                 <div className={css.textContainerFirst}>
