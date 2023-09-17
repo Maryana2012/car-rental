@@ -1,0 +1,29 @@
+.container {display: flex;
+    flex-direction: column;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    padding-left: 115px;
+    padding-right: 115px;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageFirst{
+    /* width: 240px; */
+}
+
+h1{
+    display: flex;
+    font-family: Manrope, sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    margin-bottom: 8px;
+    color: rgb(191, 110, 38);
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
