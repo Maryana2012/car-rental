@@ -1,13 +1,11 @@
-import { useState } from "react";
-import { AiOutlineHeart } from "react-icons/ai";
-import {AiOutlineClose} from "react-icons/ai"
+import { AiOutlineHeart, AiOutlineClose} from 'react-icons/ai';
 import Modal from 'react-modal';
+import { useState } from "react";
 
-import { axiosCarsFilter } from "../../axios/axios";
+import { axiosCarsFilter } from '../../axios/axios';
 import css from '../CarCardList/CarCardList.module.css'
 
 const rootElement = document.getElementById('root');
-console.log(rootElement)
 Modal.setAppElement(rootElement);
 
 const CarCardList = (props) => {
@@ -64,13 +62,11 @@ const CarCardList = (props) => {
          overlay: {
            backgroundColor: 'rgba(0, 0, 0, 0.5)',
            zIndex:10
-    },
+        },
         content: {
             position: 'relative',
             display: 'flex',
             flexDirection:'column',
-            // justifyContent: 'center',
-            // alignItems: 'center',
             width: 541,
             height: 752,
             top: '50%',
@@ -90,7 +86,7 @@ const CarCardList = (props) => {
         }
     };
     return (<>
-        <ul className={css.list} id="list">
+        <ul className={css.list}>
             {cars.map((car) =>
                 <li className={css.card}
                 key={car.id}>
@@ -122,11 +118,12 @@ const CarCardList = (props) => {
                 <button className={css.buttonLearnMore} type="button" onClick={() => handleLearnMore(car.id)}>Learn More</button>
             </li>)}
         </ul>
+      
         <Modal style={modalStyles}
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
-        >
-            {findCar && (<>
+        > 
+             {findCar && (<>
                 <img className={css.imageModal} src={findCar.img} alt='car' />
                 <button className={css.buttonClose} type="button" onClick={closeModal}><AiOutlineClose /></button>
                 <div className={css.modalSubtitleContainer}>
@@ -165,7 +162,7 @@ const CarCardList = (props) => {
            
             </>)}
               
-        </Modal>
+         </Modal> 
     </> )
 }
 
