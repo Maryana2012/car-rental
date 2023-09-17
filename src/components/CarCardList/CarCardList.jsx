@@ -2,7 +2,6 @@ import { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import {AiOutlineClose} from "react-icons/ai"
 import Modal from 'react-modal';
-import { nanoid } from "nanoid";
 
 import { axiosCarsFilter } from "../../axios/axios";
 import css from '../CarCardList/CarCardList.module.css'
