@@ -113,6 +113,7 @@
     margin: 0;
     padding: 0;
     border-radius: 24px;
+    margin-bottom: 15px;
 }
 .buttonClose{
     position: absolute;
@@ -161,5 +162,74 @@
     margin-right: 6px;
 }
 .modalDescription{
+    color: #121417;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+    margin-top: 14px;
+}
+.modalAccessoriesTitle{
+    color: #121417;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0;
+    margin-bottom: 8px;
+    margin-top: 24px;
+}
+.modalAccessory{
+   display: flex;
+   flex-direction: row;
+   margin: 0;
+}
+.rentalConditions{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
     
+}
+.modalConditionsItem{
+    padding: 7px 14px;
+    border-radius: 35px;
+    background: #F9F9F9;
+    color: #363535;
+    font-family: Montserrat, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    margin: 0;
+    margin-top: 24px;
+}
+.buttonRentalCar{
+    
+    display: inline-flex;
+    padding: 12px 50px;
+    width: 168px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: #3470FF;
+    border: none;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    color: white;
+    margin-top: 24px;
+}
+.buttonRentalCar:hover,
+.buttonRentalCar:focus{
+    background: #0B44CD;
 }

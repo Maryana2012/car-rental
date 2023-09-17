@@ -55,6 +55,11 @@ const CarCardList = (props) => {
          return ''; 
         }
     } 
+    const getConditions = (conditions) => {
+       const conditionArray = conditions.split("\n");
+        return conditionArray;
+    } 
+
 
     const modalStyles = {
          overlay: {
@@ -122,34 +127,45 @@ const CarCardList = (props) => {
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
         >
-           { findCar && (<>
-                <img className={css.imageModal} src={findCar.img} alt='car'/>
-                <button className={css.buttonClose} type="button" onClick={closeModal}><AiOutlineClose/></button>
-                <div className= {css.modalSubtitleContainer}>
-                    <p className={css.modalSubtitleText}>{findCar.make}</p>
-                    <p className={css.modalSubtitleTextModel}>{findCar.model},</p>
-                    <p className={css.modalSubtitleText}>{ findCar.year}</p>
-                </div> 
-                <div className={css.modalContainerFirst}>
-                    <p className={css.modalTextFirst}>{getCity(findCar.address)}</p>
-                    <div className={css.stick}></div>
-                    <p className={css.modalTextFirst}>{getCountry(findCar.address)}</p>
-                    <div className={css.stick}></div>
-                    <p className={css.modalTextFirst}>Id:{findCar.id}</p>
-                    <div className={css.stick}></div>
-                    <p className={css.modalTextFirst}>Year:{findCar.year}</p>
-                    <div className={css.stick}></div>
-                    <p className={css.modalTextFirst}>Type:{findCar.suv}</p>
+            {findCar && (<>
+                <img className={css.imageModal} src={findCar.img} alt='car' />
+                <button className={css.buttonClose} type="button" onClick={closeModal}><AiOutlineClose /></button>
+                <div className={css.modalSubtitleContainer}>
+                    <span className={css.modalSubtitleText}>{findCar.make}</span>
+                    <span className={css.modalSubtitleTextModel}>{findCar.model},</span>
+                    <span className={css.modalSubtitleText}>{findCar.year}</span>
                 </div>
                 <div className={css.modalContainerFirst}>
-                    <p className={css.modalTextFirst}>Fuel Consumption: {findCar.fuelConsumption}</p>
+                    <span className={css.modalTextFirst}>{getCity(findCar.address)}</span>
                     <div className={css.stick}></div>
-                    <p className={css.modalTextFirst}>Engine Size: {findCar.engineSize } </p>
-                    <div className={css.stick}></div> 
+                    <span className={css.modalTextFirst}>{getCountry(findCar.address)}</span>
+                    <div className={css.stick}></div>
+                    <span className={css.modalTextFirst}>Id:{findCar.id}</span>
+                    <div className={css.stick}></div>
+                    <span className={css.modalTextFirst}>Year:{findCar.year}</span>
+                    <div className={css.stick}></div>
+                    <span className={css.modalTextFirst}>Type:{findCar.suv}</span>
                 </div>
-                <p className={css.modalDescription}>{ findCar.description}</p>
+                <div className={css.modalContainerFirst}>
+                    <span className={css.modalTextFirst}>Fuel Consumption: {findCar.fuelConsumption}</span>
+                    <div className={css.stick}></div>
+                    <span className={css.modalTextFirst}>Engine Size: {findCar.engineSize} </span>
+                    <div className={css.stick}></div>
+                </div>
+                <p className={css.modalDescription}>{findCar.description}</p>
+                <p className={css.modalAccessoriesTitle}>Accessories and functionalities:</p>
+                <p className={css.modalAccessory}>{findCar.accessories.map((accessory) =>
+                    <><span key={accessory} className={css.modalTextFirst}>{accessory}</span>
+                        <div className={css.stick}></div></>)
+                }
+                </p>
+                <p className={css.modalAccessoriesTitle}>Rental Conditions: </p>
+                <p>{getConditions(findCar.rentalConditions).map(car =>
+                    <span key={car} className={css.modalConditionsItem}>{car}</span>)}</p>
+                <a href="tel: +380730000000" className={css.buttonRentalCar}>Rental car</a>
+           
             </>)}
-            
+              
         </Modal>
     </> )
 }
