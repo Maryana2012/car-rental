@@ -8,9 +8,6 @@
     align-items: center;
 }
 
-.imageFirst{
-    /* width: 240px; */
-}
 
 h1{
     display: flex;
@@ -26,4 +23,22 @@ h1{
     margin: 0 auto;
     padding: 0;
     width: 100%;
+    margin-bottom: 60px;
+}
+.descriptionFirst{
+    display: flex;
+    font-family: Manrope, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 8px;
+    color: white;
+    background-color: rgb(191, 110, 38);
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    height: 200px;
+    border-radius: 10px;
 }
