@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import { axiosCarsFilter } from '../../axios/axios';
 import css from '../CarCardList/CarCardList.module.css'
-import { useEffect } from 'react';
 
 const rootElement = document.getElementById('root');
 Modal.setAppElement(rootElement);
