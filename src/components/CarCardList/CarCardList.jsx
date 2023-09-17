@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import {AiOutlineClose} from "react-icons/ai"
 import Modal from 'react-modal';
@@ -6,7 +6,8 @@ import Modal from 'react-modal';
 import { axiosCarsFilter } from "../../axios/axios";
 import css from '../CarCardList/CarCardList.module.css'
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
+console.log(rootElement)
 Modal.setAppElement(rootElement);
 
 const CarCardList = (props) => {
@@ -61,6 +62,11 @@ const CarCardList = (props) => {
            zIndex:10
     },
         content: {
+            position: 'relative',
+            display: 'flex',
+            flexDirection:'column',
+            // justifyContent: 'center',
+            // alignItems: 'center',
             width: 541,
             height: 752,
             top: '50%',
@@ -69,15 +75,18 @@ const CarCardList = (props) => {
             bottom: 'auto',
             marginRight: '-50%',
             marginTop: 40,
-            paddingLeft: 15,
-            paddingRight: 15,
-            paddingTop: 35,
-            paddingBottom:35,
+            padding: 0,
+            paddingTop:40,
+            paddingBottom: 40,
+            paddingLeft: 40,
+            paddingRight:40,
             transform: 'translate(-50%, -50%)',
+            borderRadius: 24,
+            background: '#FFF',
         }
 };
     return (<>
-        <ul className={css.list}>
+        <ul className={css.list} id="list">
             {cars.map((car) =>
                 <li className={css.card}
                 key={car.id}>
@@ -115,8 +124,31 @@ const CarCardList = (props) => {
         >
            { findCar && (<>
                 <img className={css.imageModal} src={findCar.img} alt='car'/>
-                <button type="button" onClick={closeModal}><AiOutlineClose/></button>
-                </>)}
+                <button className={css.buttonClose} type="button" onClick={closeModal}><AiOutlineClose/></button>
+                <div className= {css.modalSubtitleContainer}>
+                    <p className={css.modalSubtitleText}>{findCar.make}</p>
+                    <p className={css.modalSubtitleTextModel}>{findCar.model},</p>
+                    <p className={css.modalSubtitleText}>{ findCar.year}</p>
+                </div> 
+                <div className={css.modalContainerFirst}>
+                    <p className={css.modalTextFirst}>{getCity(findCar.address)}</p>
+                    <div className={css.stick}></div>
+                    <p className={css.modalTextFirst}>{getCountry(findCar.address)}</p>
+                    <div className={css.stick}></div>
+                    <p className={css.modalTextFirst}>Id:{findCar.id}</p>
+                    <div className={css.stick}></div>
+                    <p className={css.modalTextFirst}>Year:{findCar.year}</p>
+                    <div className={css.stick}></div>
+                    <p className={css.modalTextFirst}>Type:{findCar.suv}</p>
+                </div>
+                <div className={css.modalContainerFirst}>
+                    <p className={css.modalTextFirst}>Fuel Consumption: {findCar.fuelConsumption}</p>
+                    <div className={css.stick}></div>
+                    <p className={css.modalTextFirst}>Engine Size: {findCar.engineSize } </p>
+                    <div className={css.stick}></div> 
+                </div>
+                <p className={css.modalDescription}>{ findCar.description}</p>
+            </>)}
             
         </Modal>
     </> )
