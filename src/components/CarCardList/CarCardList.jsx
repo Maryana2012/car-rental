@@ -1,4 +1,4 @@
-import { AiOutlineHeart, AiOutlineClose} from 'react-icons/ai';
+import { AiOutlineHeart, AiOutlineClose,AiFillHeart} from 'react-icons/ai';
 import Modal from 'react-modal';
 import { useState } from "react";
 
@@ -12,6 +12,9 @@ const CarCardList = (props) => {
     const { cars, onHandleFavoriteCar } = props;
     const [findCar, setFindCar] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
+    
+
   
     const handleMakeFavorite = (carId) => {
         onHandleFavoriteCar(carId)
@@ -91,7 +94,12 @@ const CarCardList = (props) => {
                 <li className={css.card}
                 key={car.id}>
                 <img className={css.image} src={car.img} alt="car" />
-                <button className={css.buttonFavorite} type="button" onClick={() => handleMakeFavorite(car.id)}><AiOutlineHeart className={css.heart} /></button>
+                    <button className={css.buttonFavorite} type="button" onClick={() => handleMakeFavorite(car.id)}>
+                        {favorite.find(favorite => favorite.id === car.id) ?
+                        <AiOutlineHeart className={css.heart} />:
+                            <AiFillHeart style={{ color: "blue" }} />
+                        }
+                        </button>
                 <div className={css.textContainerFirst}>
                     <div>
                         <span className={css.textSubtitle}>{car.make}, </span>
