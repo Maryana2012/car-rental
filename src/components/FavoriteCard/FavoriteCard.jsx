@@ -1,25 +1,24 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
-import { AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineClose} from 'react-icons/ai';
 import { axiosCarsFilter } from '../../axios/axios';
 import css from '../CarCardList/CarCardList.module.css'
 
 const rootElement = document.getElementById('root');
 Modal.setAppElement(rootElement);
 
-const FavoriteCard = (props) => {
+const FavoriteCard = () => {
 
-    const { favorite } = props;
-       
+      
     const [findCar, setFindCar] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    
+    const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
  
     const closeModal = () => {
         setModalIsOpen(false);
         setFindCar('')
     }
-
+     
     const getCity = (address) => {
        const city = address.split(",");
          if (city.length >= 2) {
@@ -85,7 +84,6 @@ const FavoriteCard = (props) => {
   
     return (
        <>
-     
         <ul className={css.listFavorite}>
             {favorite.map((favorite) =>
                 <li className={css.card}
@@ -93,7 +91,8 @@ const FavoriteCard = (props) => {
 
            
             <img className={css.image} src={favorite.img} alt="car" />
-                <div className={css.textContainerFirst}>
+         
+            <div className={css.textContainerFirst}>
                     <div>
                         <span className={css.textSubtitle}>{favorite.make}, </span>
                         <span className={css.textSubtitle}>{favorite.year}</span>
@@ -162,7 +161,9 @@ const FavoriteCard = (props) => {
            
             </>)}
               
-         </Modal>  </> )
+            </Modal>  
+            </>
+    )
 
 
 }

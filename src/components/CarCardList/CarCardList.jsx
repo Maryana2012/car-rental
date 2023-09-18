@@ -9,17 +9,15 @@ const rootElement = document.getElementById('root');
 Modal.setAppElement(rootElement);
 
 const CarCardList = (props) => {
-    const { cars, onHandleFavoriteCar } = props;
+    const { cars } = props;
     const [findCar, setFindCar] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [favorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
+    const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
 
-    const handleMakeFavorite = (carId) => {
-        onHandleFavoriteCar(carId)
-    }
-   
+      
     const handleLearnMore = (carId) => {
         setModalIsOpen(true);
+        localStorage.setItem("open", true);
         const fetchData = async () => {
             try {
                 const data = await axiosCarsFilter();
@@ -30,6 +28,23 @@ const CarCardList = (props) => {
             }
         }
         fetchData();
+    }
+    const handleFavoriteCar = (carId) => {
+        if (favorite.length === 0) {
+           const favoriteCar = cars.find(car =>  car.id === carId );
+            setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]); 
+            return; 
+        } 
+        const isFavorite = favorite.find(car => car.id === carId);
+        if (isFavorite) {
+            const index = favorite.indexOf(isFavorite);
+            const newFavorite = [...favorite];
+            newFavorite.splice(index, 1);
+            setFavorite(newFavorite);
+        } else {
+            const favoriteCar = cars.find(car =>  car.id === carId );
+            setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]);       
+        }
     }
 
     const closeModal = () => {
@@ -92,7 +107,7 @@ const CarCardList = (props) => {
                 <li className={css.card}
                 key={car.id}>
                 <img className={css.image} src={car.img} alt="car" />
-                    <button className={css.buttonFavorite} type="button" onClick={() => handleMakeFavorite(car.id)}>
+                    <button className={css.buttonFavorite} type="button" onClick={() =>handleFavoriteCar(car.id)}>
                         {favorite.find(favorite => favorite.id === car.id) ?
                         (<AiFillHeart className={css.heart} style={{ color: "blue" }}/>):
                         (<AiOutlineHeart className={css.heart}  />)
@@ -169,6 +184,7 @@ const CarCardList = (props) => {
             </>)}
               
          </Modal> 
+   
     </> )
 }
 
