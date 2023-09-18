@@ -35,8 +35,9 @@ h1{
     margin-bottom: 8px;
     color: white;
     background-color: rgb(191, 110, 38);
+
     align-items: center;
-    justify-content: center;
+    justify-content: stretch;
     margin: 0 auto;
     padding: 20px;
     height: 200px;
