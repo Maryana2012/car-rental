@@ -196,8 +196,9 @@ const CatalogPage = () => {
         </form>
         </section>
         <section className={css.sectionList}>
-        <CarCardList cars={cars} onHandleFavoriteCar={ handleFavoriteCar} />
-        <button className={css.buttonLoadMore} type="button" onClick={handleMakePagination}>Load More</button>
+            <CarCardList cars={cars} onHandleFavoriteCar={handleFavoriteCar} />
+            {cars.length >= 8 && cars.length < 25 &&
+                (<button className={css.buttonLoadMore} type="button" onClick={handleMakePagination}>Load More</button>)}
         </section>
     </main>
         )
