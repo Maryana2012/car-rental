@@ -136,7 +136,14 @@ const CatalogPage = () => {
             color: '#121417',
             paddingLeft: 18,
             
-       }),
+        }),
+        placeholder: (provided) => ({
+            ...provided,
+            color: '#121417',
+            fontFamily: 'Manrope, sans-serif',
+            fontSize: 18,
+            fontWeight: 500,
+           })
     };
 
     const customStylesPrice = {
@@ -153,7 +160,14 @@ const CatalogPage = () => {
             fontWeight: 500,
             color: '#121417',
             paddingLeft: 18
-       }),
+        }),
+        placeholder: (provided) => ({
+            ...provided,
+            color: '#121417',
+            fontFamily: 'Manrope, sans-serif',
+            fontSize: 18,
+            fontWeight: 500,
+           }),
     };
 
 
