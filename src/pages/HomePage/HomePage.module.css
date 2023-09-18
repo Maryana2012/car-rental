@@ -28,10 +28,10 @@ h1{
 .descriptionFirst{
     display: flex;
     font-family: Manrope, sans-serif;
-    font-size: 24px;
+    font-size: 28px;
     font-style: normal;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 1.5;
     margin-bottom: 8px;
     color: white;
     background-color: rgb(191, 110, 38);
