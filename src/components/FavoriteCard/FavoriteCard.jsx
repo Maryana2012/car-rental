@@ -12,7 +12,7 @@ const FavoriteCard = () => {
       
     const [findCar, setFindCar] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
+    const [favorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
  
     const closeModal = () => {
         setModalIsOpen(false);
