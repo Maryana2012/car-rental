@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/car-rental/static/css/main.eb16957e.css",
-    "main.js": "/car-rental/static/js/main.078adb13.js",
+    "main.js": "/car-rental/static/js/main.ab401362.js",
     "static/css/674.4a2cd08e.chunk.css": "/car-rental/static/css/674.4a2cd08e.chunk.css",
     "static/js/674.5cb89c53.chunk.js": "/car-rental/static/js/674.5cb89c53.chunk.js",
     "static/css/99.fe49805b.chunk.css": "/car-rental/static/css/99.fe49805b.chunk.css",
-    "static/js/99.6aa50e13.chunk.js": "/car-rental/static/js/99.6aa50e13.chunk.js",
+    "static/js/99.3d04cca4.chunk.js": "/car-rental/static/js/99.3d04cca4.chunk.js",
     "static/css/620.66d252f8.chunk.css": "/car-rental/static/css/620.66d252f8.chunk.css",
     "static/js/620.61151dac.chunk.js": "/car-rental/static/js/620.61151dac.chunk.js",
     "static/js/205.5b7a4336.chunk.js": "/car-rental/static/js/205.5b7a4336.chunk.js",
     "static/js/934.ee1c96ba.chunk.js": "/car-rental/static/js/934.ee1c96ba.chunk.js",
     "index.html": "/car-rental/index.html",
     "main.eb16957e.css.map": "/car-rental/static/css/main.eb16957e.css.map",
-    "main.078adb13.js.map": "/car-rental/static/js/main.078adb13.js.map",
+    "main.ab401362.js.map": "/car-rental/static/js/main.ab401362.js.map",
     "674.4a2cd08e.chunk.css.map": "/car-rental/static/css/674.4a2cd08e.chunk.css.map",
     "674.5cb89c53.chunk.js.map": "/car-rental/static/js/674.5cb89c53.chunk.js.map",
     "99.fe49805b.chunk.css.map": "/car-rental/static/css/99.fe49805b.chunk.css.map",
-    "99.6aa50e13.chunk.js.map": "/car-rental/static/js/99.6aa50e13.chunk.js.map",
+    "99.3d04cca4.chunk.js.map": "/car-rental/static/js/99.3d04cca4.chunk.js.map",
     "620.66d252f8.chunk.css.map": "/car-rental/static/css/620.66d252f8.chunk.css.map",
     "620.61151dac.chunk.js.map": "/car-rental/static/js/620.61151dac.chunk.js.map",
     "205.5b7a4336.chunk.js.map": "/car-rental/static/js/205.5b7a4336.chunk.js.map",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.eb16957e.css",
-    "static/js/main.078adb13.js"
+    "static/js/main.ab401362.js"
   ]
 }
