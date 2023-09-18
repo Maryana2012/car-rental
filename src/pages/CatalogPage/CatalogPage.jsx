@@ -192,7 +192,9 @@ const CatalogPage = () => {
                 value={inputTo}
                         onChange={handleToChange} />
             </label>
-            <button className={css.buttonSearch}>Search</button>
+            <label className={css.labelForm}>.  
+                    <button className={css.buttonSearch}>Search</button>
+            </label>    
         </form>
         </section>
         <section className={css.sectionList}>
