@@ -31,12 +31,6 @@ const CatalogPage = () => {
         fetchData();     
     }, []);
     
-       
-    useEffect(() => {
-        const favoriteStringify = JSON.stringify(favorite)
-        localStorage.setItem("favorite", favoriteStringify)
-    }, [favorite]);
-
       
     useEffect(() => {
         if (shouldRender) {
@@ -61,24 +55,7 @@ const CatalogPage = () => {
         }
     }, [shouldRender, inputFrom, inputTo, selectMark, selectPrice, allCars]);
 
-    const handleFavoriteCar = (carId) => {
-        if (favorite.length === 0) {
-           const favoriteCar = cars.find(car =>  car.id === carId );
-            setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]); 
-            return; 
-        } 
-        const isFavorite = favorite.find(car => car.id === carId);
-        if (isFavorite) {
-            const index = favorite.indexOf(isFavorite);
-            const newFavorite = [...favorite];
-            newFavorite.splice(index, 1);
-            setFavorite(newFavorite);
-        } else {
-            const favoriteCar = cars.find(car =>  car.id === carId );
-            setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]);       
-        }
-    }
-    
+        
     const handleMakePagination = () => {
         const fetchData = async () => {
             try {
@@ -212,7 +189,7 @@ const CatalogPage = () => {
         </form>
         </section>
         <section className={css.sectionList}>
-            <CarCardList cars={cars} onHandleFavoriteCar={handleFavoriteCar} />
+            <CarCardList cars={cars} />
             {cars.length >= 8 && cars.length < 25 &&
                 (<button className={css.buttonLoadMore} type="button" onClick={handleMakePagination}>Load More</button>)}
         </section>
