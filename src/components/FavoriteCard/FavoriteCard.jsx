@@ -182,6 +182,10 @@ const FavoriteCard = () => {
                 <p className={css.modalAccessoriesTitle}>Rental Conditions: </p>
                 <p>{getConditions(findCar.rentalConditions).map(car =>
                     <span key={car} className={css.modalConditionsItem}>{car}</span>)}</p>
+                <div className={css.modalAccessory}>
+                <span className={css.modalConditionsItem}>Mileage: <span className={css.modalMileage}>{findCar.mileage.toLocaleString('en-US')}</span></span>
+                <span className={css.modalConditionsItem}>Price: <span className={css.modalMileage}>{findCar.rentalPrice}</span></span>
+                </div>
                 <a href="tel: +380730000000" className={css.buttonRentalCar}>Rental car</a>
            
             </>)}
