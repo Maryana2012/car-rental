@@ -55,7 +55,7 @@
 .labelFrom{
     position: absolute;
     top:44%;
-    left:44%;
+    left:42%;
     z-index: 3;
     color: #121417;
     font-family: Manrope, sans-serif;
@@ -83,7 +83,7 @@
 .labelTo {
     position: absolute;
     top: 44%;
-    left: 60%;
+    left: 65%;
     z-index: 3;
     color: #121417;
     font-family: Manrope, sans-serif;
