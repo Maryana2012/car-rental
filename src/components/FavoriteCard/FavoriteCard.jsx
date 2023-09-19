@@ -115,11 +115,8 @@ const FavoriteCard = () => {
            
             <img className={css.image} src={favorite.img} alt="car" />
             <button className={css.buttonFavorite} type="button" onClick={() =>handleFavoriteCar(favorite.id)}>
-                     
-                        (<AiFillHeart className={css.heart} style={{ color: "blue" }}/>):
-                        
-                        }
-                        </button>
+                     <AiFillHeart className={css.heart} style={{ color: "blue" }}/>
+            </button>
             <div className={css.textContainerFirst}>
                     <div>
                         <span className={css.textSubtitle}>{favorite.make}, </span>
