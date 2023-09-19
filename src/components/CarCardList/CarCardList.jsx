@@ -168,7 +168,7 @@ const CarCardList = (props) => {
                     <div className={css.stick}></div>
                     <span className={css.modalTextFirst}>Year:{findCar.year}</span>
                     <div className={css.stick}></div>
-                    <span className={css.modalTextFirst}>Type:{findCar.suv}</span>
+                    <span className={css.modalTextFirst}>Type:{findCar.type}</span>
                 </div>
                 <div className={css.modalContainerFirst}>
                     <span className={css.modalTextFirst}>Fuel Consumption: {findCar.fuelConsumption}</span>
