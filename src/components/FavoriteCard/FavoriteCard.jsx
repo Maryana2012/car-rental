@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { AiOutlineHeart, AiOutlineClose,AiFillHeart} from 'react-icons/ai';
+import { AiOutlineClose,AiFillHeart} from 'react-icons/ai';
 import { axiosCarsFilter } from '../../axios/axios';
 import css from '../CarCardList/CarCardList.module.css'
 
