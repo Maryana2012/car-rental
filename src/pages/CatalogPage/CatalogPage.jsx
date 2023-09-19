@@ -34,12 +34,17 @@ const CatalogPage = () => {
     useEffect(() => {
         if (shouldRender) {
             const filterCarArray = [...allCars];
-            console.log(selectMark);
-                if (selectMark || selectPrice || (inputFrom && inputTo)) {
+            if (!inputFrom || !inputTo) {
+                alert('Fill fields "From" and "To"');
+                return;
+           }
+            if (selectMark || selectPrice || (inputFrom && inputTo)) {
+               const newInputFrom = inputFrom.replace(/,/g, '')
+               const newInputTo = inputTo.replace(/,/g, '')
                 const filtered = filterCarArray.filter((car) => {
                     const markCondition = !selectMark || car.make === selectMark.value;
                     const priceCondition = !selectPrice || Number(car.rentalPrice.replace(/[^0-9.-]+/g, "")) <= Number(selectPrice.value);
-                    const mileageCondition = (!inputFrom && !inputTo) || (car.mileage >= inputFrom && car.mileage <= inputTo);
+                    const mileageCondition = (!inputFrom && !inputTo) || (car.mileage >= newInputFrom && car.mileage <= newInputTo);
                     return markCondition && priceCondition && mileageCondition;
                 });
                 setCars(filtered);
@@ -76,11 +81,17 @@ const CatalogPage = () => {
         setSelectPrice(selectedOption);
     };
     const handleFromChange = (e) => {
-        setInputFrom(e.target.value);
-    };
-    const handleToChange = (e) => {
-        setInputTo(e.target.value);
-    };
+        let value = e.target.value.replace(/,/g, ''); // Видаляємо коми
+        if (!isNaN(value)) {
+            setInputFrom(parseInt(value, 10).toLocaleString('en-US'));
+        };
+    }
+        const handleToChange = (e) => {
+            let value = e.target.value.replace(/,/g, ''); // Видаляємо коми
+            if (!isNaN(value)) {
+                setInputTo(parseInt(value, 10).toLocaleString('en-US'));;
+            };
+        }
 
     const handleSubmit = (e) => {
         e.preventDefault();
