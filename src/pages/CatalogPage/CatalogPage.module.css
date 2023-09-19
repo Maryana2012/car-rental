@@ -42,7 +42,7 @@
     height: 48px;
     align-items: center;
     border: none;
-    padding-left: 80px;
+    padding-left: 60px;
     border-radius: 14px 0px 0px 14px;
     border-right: 1px solid rgba(138, 138, 137, 0.20);
     background: #F7F7FB;
@@ -52,6 +52,7 @@
     font-style: normal;
     font-weight: 500;
 }
+
 .labelFrom{
     position: absolute;
     top:44%;
@@ -83,7 +84,7 @@
 .labelTo {
     position: absolute;
     top: 44%;
-    left: 65%;
+    left: 63%;
     z-index: 3;
     color: #121417;
     font-family: Manrope, sans-serif;
