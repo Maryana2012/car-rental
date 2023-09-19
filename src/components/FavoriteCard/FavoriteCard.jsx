@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { AiOutlineClose} from 'react-icons/ai';
+import { AiOutlineHeart, AiOutlineClose,AiFillHeart} from 'react-icons/ai';
 import { axiosCarsFilter } from '../../axios/axios';
 import css from '../CarCardList/CarCardList.module.css'
 
@@ -12,8 +12,31 @@ const FavoriteCard = () => {
       
     const [findCar, setFindCar] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [favorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
+    const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
  
+     useEffect(() => {
+        const favoriteStringify = JSON.stringify(favorite)
+        localStorage.setItem("favorite", favoriteStringify)
+     }, [favorite]);
+    
+     const handleFavoriteCar = (carId) => {
+        if (favorite.length === 0) {
+           const favoriteCar = favorite.find(car =>  car.id === carId );
+            setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]); 
+            return; 
+        } 
+        const isFavorite = favorite.find(car => car.id === carId);
+        if (isFavorite) {
+            const index = favorite.indexOf(isFavorite);
+            const newFavorite = [...favorite];
+            newFavorite.splice(index, 1);
+            setFavorite(newFavorite);
+        } else {
+            const favoriteCar = favorite.find(car =>  car.id === carId );
+            setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]);       
+        }
+    }
+
     const closeModal = () => {
         setModalIsOpen(false);
         setFindCar('')
@@ -91,7 +114,12 @@ const FavoriteCard = () => {
 
            
             <img className={css.image} src={favorite.img} alt="car" />
-         
+            <button className={css.buttonFavorite} type="button" onClick={() =>handleFavoriteCar(favorite.id)}>
+                     
+                        (<AiFillHeart className={css.heart} style={{ color: "blue" }}/>):
+                        
+                        }
+                        </button>
             <div className={css.textContainerFirst}>
                     <div>
                         <span className={css.textSubtitle}>{favorite.make}, </span>

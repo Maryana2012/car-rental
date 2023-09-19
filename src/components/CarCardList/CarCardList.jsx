@@ -35,9 +35,7 @@ const CarCardList = (props) => {
         fetchData();
         
     }
-    // const handleMakeFavorite = (carId) => {
-    //     onHandleFavoriteCar(carId)
-    // }
+    
      const handleFavoriteCar = (carId) => {
         if (favorite.length === 0) {
            const favoriteCar = cars.find(car =>  car.id === carId );
