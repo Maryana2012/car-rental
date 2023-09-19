@@ -8,8 +8,7 @@ import css from "../CatalogPage/CatalogPage.module.css"
 
 const CatalogPage = () => { 
     const [cars, setCars] = useState([]);
-    const [page, setPage] = useState(1);const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
-    
+    const [page, setPage] = useState(1);   
     const [selectMark, setSelectMark] = useState('');
     const [selectPrice, setSelectPrice] = useState('');
     const [inputFrom, setInputFrom] = useState('');
