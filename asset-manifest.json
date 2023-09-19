@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/car-rental/static/css/main.bf287380.css",
-    "main.js": "/car-rental/static/js/main.bd0f3be1.js",
+    "main.js": "/car-rental/static/js/main.e6ac954f.js",
     "static/css/674.a2e86f7a.chunk.css": "/car-rental/static/css/674.a2e86f7a.chunk.css",
     "static/js/674.5cb89c53.chunk.js": "/car-rental/static/js/674.5cb89c53.chunk.js",
     "static/css/99.255bc4e8.chunk.css": "/car-rental/static/css/99.255bc4e8.chunk.css",
-    "static/js/99.49f73067.chunk.js": "/car-rental/static/js/99.49f73067.chunk.js",
+    "static/js/99.dce9da89.chunk.js": "/car-rental/static/js/99.dce9da89.chunk.js",
     "static/css/620.cf20a4da.chunk.css": "/car-rental/static/css/620.cf20a4da.chunk.css",
     "static/js/620.590fccb7.chunk.js": "/car-rental/static/js/620.590fccb7.chunk.js",
     "static/js/205.5b7a4336.chunk.js": "/car-rental/static/js/205.5b7a4336.chunk.js",
     "static/js/934.ee1c96ba.chunk.js": "/car-rental/static/js/934.ee1c96ba.chunk.js",
     "index.html": "/car-rental/index.html",
     "main.bf287380.css.map": "/car-rental/static/css/main.bf287380.css.map",
-    "main.bd0f3be1.js.map": "/car-rental/static/js/main.bd0f3be1.js.map",
+    "main.e6ac954f.js.map": "/car-rental/static/js/main.e6ac954f.js.map",
     "674.a2e86f7a.chunk.css.map": "/car-rental/static/css/674.a2e86f7a.chunk.css.map",
     "674.5cb89c53.chunk.js.map": "/car-rental/static/js/674.5cb89c53.chunk.js.map",
     "99.255bc4e8.chunk.css.map": "/car-rental/static/css/99.255bc4e8.chunk.css.map",
-    "99.49f73067.chunk.js.map": "/car-rental/static/js/99.49f73067.chunk.js.map",
+    "99.dce9da89.chunk.js.map": "/car-rental/static/js/99.dce9da89.chunk.js.map",
     "620.cf20a4da.chunk.css.map": "/car-rental/static/css/620.cf20a4da.chunk.css.map",
     "620.590fccb7.chunk.js.map": "/car-rental/static/js/620.590fccb7.chunk.js.map",
     "205.5b7a4336.chunk.js.map": "/car-rental/static/js/205.5b7a4336.chunk.js.map",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.bf287380.css",
-    "static/js/main.bd0f3be1.js"
+    "static/js/main.e6ac954f.js"
   ]
 }
