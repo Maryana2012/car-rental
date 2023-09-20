@@ -34,11 +34,7 @@ const CatalogPage = () => {
     useEffect(() => {
         if (shouldRender) {
             const filterCarArray = [...allCars];
-            if (!inputFrom || !inputTo) {
-                alert('Fill fields "From" and "To"');
-                return;
-           }
-            if (selectMark || selectPrice || (inputFrom && inputTo)) {
+               if (selectMark || selectPrice || (inputFrom && inputTo)) {
                const newInputFrom = inputFrom.replace(/,/g, '')
                const newInputTo = inputTo.replace(/,/g, '')
                 const filtered = filterCarArray.filter((car) => {
