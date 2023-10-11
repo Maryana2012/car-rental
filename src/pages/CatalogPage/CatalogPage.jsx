@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import Select from 'react-select';
 
 import { axiosAllCars, axiosPagination,axiosCarsFilter } from "../../axios/axios";
-import CarCardList from "components/CarList/CarList";
-import { optionsMark, optionsPrice } from "../../data";
+import { optionsMark, optionsPrice, customStylesMark,customStylesPrice } from "../CatalogPage/SelectStyles";
+import CarList from '../../components/CarList/CarList';
 import css from "../CatalogPage/CatalogPage.module.css"
 
 const CatalogPage = () => { 
@@ -104,54 +104,54 @@ const CatalogPage = () => {
         fetchData();
     };
 
-    const customStylesMark = {
-       control: (provided) => ({
-       ...provided,
-            width: 224, 
-            height: 48,
-            borderRadius: 14,
-            background: '#F7F7FB',
-            border: 'none',
-            marginRight: 18,
-            fontFamily: 'Manrope, sans-serif',
-            fontSize: 18,
-            fontWeight: 500, 
-            color: '#121417',
-            paddingLeft: 18,
+    // const customStylesMark = {
+    //    control: (provided) => ({
+    //    ...provided,
+    //         width: 224, 
+    //         height: 48,
+    //         borderRadius: 14,
+    //         background: '#F7F7FB',
+    //         border: 'none',
+    //         marginRight: 18,
+    //         fontFamily: 'Manrope, sans-serif',
+    //         fontSize: 18,
+    //         fontWeight: 500, 
+    //         color: '#121417',
+    //         paddingLeft: 18,
             
-        }),
-        placeholder: (provided) => ({
-            ...provided,
-            color: '#121417',
-            fontFamily: 'Manrope, sans-serif',
-            fontSize: 18,
-            fontWeight: 500,
-           })
-    };
+    //     }),
+    //     placeholder: (provided) => ({
+    //         ...provided,
+    //         color: '#121417',
+    //         fontFamily: 'Manrope, sans-serif',
+    //         fontSize: 18,
+    //         fontWeight: 500,
+    //        })
+    // };
 
-    const customStylesPrice = {
-       control: (provided) => ({
-       ...provided,
-            width: 125, 
-            height: 48,
-            borderRadius: 14,
-            background: '#F7F7FB',
-            border: 'none',
-            marginRight: 18,
-            fontFamily: 'Manrope, sans-serif',
-            fontSize: 18,
-            fontWeight: 500,
-            color: '#121417',
-            paddingLeft: 18
-        }),
-        placeholder: (provided) => ({
-            ...provided,
-            color: '#121417',
-            fontFamily: 'Manrope, sans-serif',
-            fontSize: 18,
-            fontWeight: 500,
-           }),
-    };
+    // const customStylesPrice = {
+    //    control: (provided) => ({
+    //    ...provided,
+    //         width: 125, 
+    //         height: 48,
+    //         borderRadius: 14,
+    //         background: '#F7F7FB',
+    //         border: 'none',
+    //         marginRight: 18,
+    //         fontFamily: 'Manrope, sans-serif',
+    //         fontSize: 18,
+    //         fontWeight: 500,
+    //         color: '#121417',
+    //         paddingLeft: 18
+    //     }),
+    //     placeholder: (provided) => ({
+    //         ...provided,
+    //         color: '#121417',
+    //         fontFamily: 'Manrope, sans-serif',
+    //         fontSize: 18,
+    //         fontWeight: 500,
+    //        }),
+    // };
 
 
     
@@ -165,9 +165,10 @@ const CatalogPage = () => {
                 options={optionsMark}
                 value={selectMark}
                 onChange={handleMarkChange}
-            /></label>
+                    />
+                </label>
             <label className={css.labelForm}>Price/ 1 hour
-            <Select   styles={customStylesPrice}
+            <Select styles={customStylesPrice}
                 placeholder="To $"
                 options={optionsPrice}
                 value={selectPrice}
@@ -195,7 +196,7 @@ const CatalogPage = () => {
         </form>
         </section>
         <section className={css.sectionList}>
-            <CarCardList cars={cars} />
+            <CarList cars={cars} />
             {cars.length >= 8 && cars.length < 25 &&
                 (<button className={css.buttonLoadMore} type="button" onClick={handleMakePagination}>Load More</button>)}
         </section>

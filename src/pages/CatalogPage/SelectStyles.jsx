@@ -40,6 +40,7 @@ export const optionsPrice =[
 
 ]
 
+
 export const customStylesMark = {
        control: (provided) => ({
        ...provided,

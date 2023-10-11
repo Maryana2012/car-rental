@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import CarCard from '../CarCard/CarCard';
 import css from '../CarList/CarList.module.css'
 
-const CarList = (props) => {
-    const { cars } = props; 
+const CarList = ({cars}) => {
+   
     const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
     
     useEffect(() => {
@@ -14,7 +14,6 @@ const CarList = (props) => {
     const handleFavoriteCar = (id) => {
         if (favorite.length === 0) {
             const favoriteCar = cars.find(car => car.id === id);
-            console.log(favoriteCar);
             setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]); 
             return; 
         } 
@@ -43,6 +42,7 @@ const CarList = (props) => {
                     type={car.type}
                     model={car.model}
                     mileage={car.mileage}
+                    favorite={favorite}
                     accessories={car.accessories[0]}
                     makeFavorite={handleFavoriteCar}/> )}
         </ul>)

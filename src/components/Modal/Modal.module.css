@@ -129,4 +129,5 @@
 .buttonRentalCar:hover,
 .buttonRentalCar:focus{
     background: #0B44CD;
+    cursor: pointer;
 }

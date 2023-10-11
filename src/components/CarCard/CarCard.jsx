@@ -1,22 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 import { axiosCarsFilter } from '../../axios/axios';
 import ModalElement from '../Modal/Modal';
 import css from '../CarCard/CarCard.module.css';
 
-const CarCard = ({ id, img, make, year, rentalPrice, address, rentalCompany, type, model, mileage, accessories, makeFavorite }) => {
-    
-    const [favorite, setFavorite] = useState([])
+const CarCard = ({ id, img, make, year, rentalPrice, address, rentalCompany, type, model, mileage, accessories, makeFavorite, favorite }) => {
+
     const [findCar, setFindCar] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
    
-    useEffect(() => {
-        const favoriteParse = localStorage.getItem('favorite');
-        const favorite = JSON.parse(favoriteParse);
-        setFavorite(favorite);
-    }, [favorite]);
- 
     const handleFavoriteCar = (id) => {
         makeFavorite(id);
     }

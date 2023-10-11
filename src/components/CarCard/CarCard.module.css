@@ -23,6 +23,11 @@
     border: none;
 }
 
+.buttonFavorite:hover,
+.buttonFavorite:focus{
+    cursor: pointer;
+}
+
 .heart {
     width: 18px;
     height: 18px;
@@ -99,4 +104,5 @@
 .buttonLearnMore:hover,
 .buttonLearnMore:focus {
     background: #0B44CD;
+    cursor: pointer;
 }
