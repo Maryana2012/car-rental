@@ -77,13 +77,13 @@ const CatalogPage = () => {
         setSelectPrice(selectedOption);
     };
     const handleFromChange = (e) => {
-        let value = e.target.value.replace(/,/g, ''); // Видаляємо коми
+        let value = e.target.value.replace(/,/g, ''); 
         if (!isNaN(value)) {
             setInputFrom(parseInt(value, 10).toLocaleString('en-US'));
         };
     }
-        const handleToChange = (e) => {
-            let value = e.target.value.replace(/,/g, ''); // Видаляємо коми
+    const handleToChange = (e) => {
+            let value = e.target.value.replace(/,/g, ''); 
             if (!isNaN(value)) {
                 setInputTo(parseInt(value, 10).toLocaleString('en-US'));;
             };
