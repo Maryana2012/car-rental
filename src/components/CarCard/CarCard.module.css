@@ -1,0 +1,102 @@
+.card {
+    position: relative;
+    display: flex;
+    width: 268px;
+    height: 426px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.image {
+    width: 268px;
+    min-height: 268px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+
+}
+
+.buttonFavorite {
+    position: absolute;
+    top: 14px;
+    left: 226px;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+.heart {
+    width: 18px;
+    height: 18px;
+    color: white;
+}
+
+.textSubtitle {
+    color: #121417;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.textContainerFirst {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.text {
+    display: flex;
+    height: 16px;
+    color: rgba(18, 20, 23, 0.50);
+    font-family: Manrope, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    margin-right: 6px;
+    line-height: 18px;
+}
+
+.stick {
+    width: 1px;
+    height: 16px;
+    background-color: rgba(18, 20, 23, 0.10);
+    margin-right: 6px;
+}
+
+.textContainerSecond,
+.textContainerThird {
+    display: flex;
+    flex-direction: row;
+    height: 16px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.textContainerThird {
+    margin-bottom: 28px;
+}
+
+.buttonLearnMore {
+    display: flex;
+    width: 274px;
+    height: 44px;
+    padding: 12px 99px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: #3470FF;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    color: white;
+    border: none;
+}
+
+.buttonLearnMore:hover,
+.buttonLearnMore:focus {
+    background: #0B44CD;
+}

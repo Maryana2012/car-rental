@@ -14,10 +14,6 @@ const ModalElement = ({ findCar, modalStatus, closeModal }) => {
         setModalIsOpen(modalStatus)
     }, [modalStatus]);
     
-    console.log(findCar);
-    console.log(modalStatus);
-    console.log(modalIsOpen);
-
     const handleCloseModal = () => {
         closeModal();
     }

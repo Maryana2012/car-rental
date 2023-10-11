@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Select from 'react-select';
 
 import { axiosAllCars, axiosPagination,axiosCarsFilter } from "../../axios/axios";
-import CarCardList from "components/CarCardList/CarCardList";
+import CarCardList from "components/CarList/CarList";
 import { optionsMark, optionsPrice } from "../../data";
 import css from "../CatalogPage/CatalogPage.module.css"
 
