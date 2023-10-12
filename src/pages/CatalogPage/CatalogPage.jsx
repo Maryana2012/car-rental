@@ -15,7 +15,32 @@ const CatalogPage = () => {
     const [inputTo, setInputTo] = useState('');
     const [allCars, setAllCars] = useState('');
     const [shouldRender, setShouldRender] = useState(false);
-   
+    const [favorite, setFavorite] = useState(JSON.parse(window.localStorage.getItem('favorite')) ?? []);
+
+
+    useEffect(() => {
+        const favoriteStringify = JSON.stringify(favorite);
+        localStorage.setItem("favorite", favoriteStringify);
+    }, [favorite]);
+
+    const handleFavoriteCar = (id) => {
+        if (favorite.length === 0) {
+            const favoriteCar = cars.find(car => car.id === id);
+            setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]); 
+            return; 
+        } 
+        const isFavorite = favorite.find(car => car.id === id);
+        if (isFavorite) {
+            const index = favorite.indexOf(isFavorite);
+            const newFavorite = [...favorite];
+            newFavorite.splice(index, 1);
+            setFavorite(newFavorite);
+        } else {
+            const favoriteCar = cars.find(car =>  car.id === id );
+            setFavorite((prevFavorite) => [...prevFavorite, favoriteCar]);       
+        }
+    }
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -104,57 +129,7 @@ const CatalogPage = () => {
         fetchData();
     };
 
-    // const customStylesMark = {
-    //    control: (provided) => ({
-    //    ...provided,
-    //         width: 224, 
-    //         height: 48,
-    //         borderRadius: 14,
-    //         background: '#F7F7FB',
-    //         border: 'none',
-    //         marginRight: 18,
-    //         fontFamily: 'Manrope, sans-serif',
-    //         fontSize: 18,
-    //         fontWeight: 500, 
-    //         color: '#121417',
-    //         paddingLeft: 18,
-            
-    //     }),
-    //     placeholder: (provided) => ({
-    //         ...provided,
-    //         color: '#121417',
-    //         fontFamily: 'Manrope, sans-serif',
-    //         fontSize: 18,
-    //         fontWeight: 500,
-    //        })
-    // };
-
-    // const customStylesPrice = {
-    //    control: (provided) => ({
-    //    ...provided,
-    //         width: 125, 
-    //         height: 48,
-    //         borderRadius: 14,
-    //         background: '#F7F7FB',
-    //         border: 'none',
-    //         marginRight: 18,
-    //         fontFamily: 'Manrope, sans-serif',
-    //         fontSize: 18,
-    //         fontWeight: 500,
-    //         color: '#121417',
-    //         paddingLeft: 18
-    //     }),
-    //     placeholder: (provided) => ({
-    //         ...provided,
-    //         color: '#121417',
-    //         fontFamily: 'Manrope, sans-serif',
-    //         fontSize: 18,
-    //         fontWeight: 500,
-    //        }),
-    // };
-
-
-    
+   
     return (<main className={css.container}>
         <section>
             <form className={css.form} onSubmit={handleSubmit}>
@@ -196,7 +171,11 @@ const CatalogPage = () => {
         </form>
         </section>
         <section className={css.sectionList}>
-            <CarList cars={cars} />
+           
+            <CarList cars={cars} 
+                     favorite={favorite}
+                     handleFavoriteCar={handleFavoriteCar}
+            />
             {cars.length >= 8 && cars.length < 25 &&
                 (<button className={css.buttonLoadMore} type="button" onClick={handleMakePagination}>Load More</button>)}
         </section>

@@ -110,6 +110,7 @@
 .buttonSearch:hover,
 .buttonSearch:focus{
     background: #0B44CD;
+    cursor: pointer;
 }
 .sectionList{
     display: flex;
@@ -133,4 +134,5 @@
 .buttonLoadMore:hover,
 .buttonLoadMore:focus{
     color: #0B44CD;
+    cursor: pointer;
 }

@@ -21,6 +21,10 @@ text-decoration: none;
 
 .text:hover,
 .text:focus{
-color: rgb(181, 201, 219);
+color: blue;
 }
 
+.active{
+color:blue;
+font-weight: 500;
+}

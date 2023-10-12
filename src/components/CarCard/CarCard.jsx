@@ -48,7 +48,7 @@ const CarCard = ({ id, img, make, year, rentalPrice, address, rentalCompany, typ
         setModalIsOpen(false);
         setFindCar('')
     }
-  
+   
     return (<>
                 <li className={css.card}
                     key={id}>
@@ -57,6 +57,7 @@ const CarCard = ({ id, img, make, year, rentalPrice, address, rentalCompany, typ
                     { favorite.find(favorite => favorite.id === id)?
                             (<AiFillHeart className={css.heart} style={{ color: "blue" }} />) :
                             (<AiOutlineHeart className={css.heart} />)}
+                    
                     </button>
                     <div className={css.textContainerFirst}>
                         <div>
