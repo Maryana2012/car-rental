@@ -26,8 +26,13 @@ h1{
     width: 100%;
     margin-bottom: 60px;
 }
+.sectionHero{
+    display: flex;
+}
 .descriptionFirst{
     display: flex;
+    width: 680px;
+    height: 380px;
     font-family: Manrope, sans-serif;
     font-size: 28px;
     font-style: normal;
@@ -40,6 +45,12 @@ h1{
     justify-content: stretch;
     margin: 0 auto;
     padding: 20px;
-    height: 200px;
+    border-radius: 10px;
+  
+}
+.heroImage{
+    display: flex;
+    width: 680px;
+    height: 420px;
     border-radius: 10px;
 }

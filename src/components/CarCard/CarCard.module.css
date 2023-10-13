@@ -34,7 +34,8 @@
     color: white;
 }
 
-.textSubtitle {
+.textSubtitle,
+.textModel {
     color: #121417;
     font-family: Manrope, sans-serif;
     font-size: 16px;
@@ -42,7 +43,10 @@
     font-weight: 500;
     line-height: 24px;
 }
-
+.textModel{
+    color:#3470FF;
+    font-weight: 400;
+}
 .textContainerFirst {
     display: flex;
     flex-direction: row;

@@ -62,6 +62,7 @@ const CarCard = ({ id, img, make, year, rentalPrice, address, rentalCompany, typ
                     <div className={css.textContainerFirst}>
                         <div>
                             <span className={css.textSubtitle}>{make}, </span>
+                            <span className={css.textModel}>{model} </span>
                             <span className={css.textSubtitle}>{year}</span>
                         </div>
                         <span className={css.textSubtitle}>{rentalPrice}</span>
