@@ -55,7 +55,7 @@ const CarCard = ({ id, img, make, year, rentalPrice, address, rentalCompany, typ
                     <img className={css.image} src={img} alt="car" />
                     <button className={css.buttonFavorite} type="button" onClick={() => handleFavoriteCar(id)}>
                     { favorite.find(favorite => favorite.id === id)?
-                            (<AiFillHeart className={css.heart} style={{ color: "blue" }} />) :
+                            (<AiFillHeart className={css.heart} style={{ color: "#3470FF" }} />) :
                             (<AiOutlineHeart className={css.heart} />)}
                     
                     </button>
