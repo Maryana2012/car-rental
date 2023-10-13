@@ -1,4 +1,5 @@
 export const optionsMark = [
+        { value: 'All cars', label: 'All cars' },
         { value: 'Buick', label: 'Buick' },
         { value: 'Volvo', label: 'Volvo' },
         { value: 'Subaru', label: 'Subaru' },

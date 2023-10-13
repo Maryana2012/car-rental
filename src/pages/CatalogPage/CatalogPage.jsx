@@ -56,14 +56,14 @@ const CatalogPage = () => {
         fetchData();     
     }, []);
     
-      
+
     useEffect(() => {
         if (shouldRender) {
             const filterCarArray = [...allCars];
-               if (selectMark || selectPrice || (inputFrom && inputTo)) {
+            if (selectMark || selectPrice || (inputFrom && inputTo)) {
                const newInputFrom = inputFrom.replace(/,/g, '')
                const newInputTo = inputTo.replace(/,/g, '')
-                const filtered = filterCarArray.filter((car) => {
+               const filtered = filterCarArray.filter((car) => {
                     const markCondition = !selectMark || car.make === selectMark.value;
                     const priceCondition = !selectPrice || Number(car.rentalPrice.replace(/[^0-9.-]+/g, "")) <= Number(selectPrice.value);
                     const mileageCondition = (!inputFrom && !inputTo) || (car.mileage >= newInputFrom && car.mileage <= newInputTo);
@@ -117,12 +117,25 @@ const CatalogPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (selectMark.value === "All cars") {
+            const fetchData = async () => {
+            try {
+                const data = await axiosAllCars();
+                setCars(data);
+            }
+            catch (error) {
+                console.log(error)
+                }
+              
+            }
+            fetchData();   
+            return
+        }
         const fetchData = async () => {
             try {
                 const data = await axiosCarsFilter();
                 setAllCars(data);
                 setShouldRender(true);
-                ;
             } catch (error) {
                 console.log(error);
             }
