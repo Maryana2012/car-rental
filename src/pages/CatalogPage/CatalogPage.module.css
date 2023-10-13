@@ -36,6 +36,7 @@
 .selectPrice{
     margin-right: 18px;
 } 
+
 .inputFrom{
     display: flex;
     width: 140px;
@@ -92,6 +93,13 @@
     font-style: normal;
     font-weight: 500;
 }
+.inputFrom:hover,
+.inputFrom:focus,
+.inputTo:hover,
+.inputTo:focus{
+    cursor: pointer;
+   
+}
 .buttonSearch{
     display: flex;
     width: 136px;
@@ -111,6 +119,7 @@
 .buttonSearch:focus{
     background: #0B44CD;
     cursor: pointer;
+    border: none;
 }
 .sectionList{
     display: flex;

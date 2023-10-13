@@ -12,19 +12,14 @@
 .navLink {
 text-decoration: none;
 }
+
 .text{
     font-family: Manrope, sans-serif;
     font-size: 24px;
     font-weight: 500;
-    color: white;
+   
 }
 
-.text:hover,
-.text:focus{
-color: blue;
-}
 
-.active{
-color:blue;
-font-weight: 500;
-}
+
+

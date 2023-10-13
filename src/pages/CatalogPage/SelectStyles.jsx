@@ -55,7 +55,11 @@ export const customStylesMark = {
             fontWeight: 500, 
             color: '#121417',
             paddingLeft: 18,
-            
+           
+        '&:hover': {
+           
+            cursor: 'pointer'
+        }
         }),
         placeholder: (provided) => ({
             ...provided,
@@ -79,7 +83,12 @@ export const customStylesPrice = {
             fontSize: 18,
             fontWeight: 500,
             color: '#121417',
-            paddingLeft: 18
+            paddingLeft: 18,
+            
+        '&:hover': {
+           
+            cursor: 'pointer'
+        }
         }),
         placeholder: (provided) => ({
             ...provided,

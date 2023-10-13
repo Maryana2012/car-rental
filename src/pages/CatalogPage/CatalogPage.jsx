@@ -6,6 +6,7 @@ import { optionsMark, optionsPrice, customStylesMark,customStylesPrice } from ".
 import CarList from '../../components/CarList/CarList';
 import css from "../CatalogPage/CatalogPage.module.css"
 
+
 const CatalogPage = () => { 
     const [cars, setCars] = useState([]);
     const [page, setPage] = useState(1);   
@@ -95,7 +96,7 @@ const CatalogPage = () => {
     };
 
     const handleMarkChange = (selectedOption) => {
-        setSelectMark(selectedOption);
+        setSelectMark(selectedOption );
     };
 
     const handlePriceChange = (selectedOption) => {
@@ -177,7 +178,8 @@ const CatalogPage = () => {
                      handleFavoriteCar={handleFavoriteCar}
             />
             {cars.length >= 8 && cars.length < 25 &&
-                (<button className={css.buttonLoadMore} type="button" onClick={handleMakePagination}>Load More</button>)}
+                (  
+                    <button className={css.buttonLoadMore} type="button" onClick={handleMakePagination}>Load More</button>)}
         </section>
     </main>
         )
